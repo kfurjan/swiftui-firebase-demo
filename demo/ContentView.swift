@@ -2,15 +2,21 @@
 //  ContentView.swift
 //  demo
 //
-//  Created by Ericsson on 28.11.2021..
+//  Created by Kevin Furjan on 28.11.2021.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+
+    @EnvironmentObject var viewModel: LoginViewModel
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if viewModel.isUserLoggedIn {
+            HomeView()
+        } else {
+            LoginView()
+        }
     }
 }
 
